@@ -4,216 +4,191 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>aayush. — archive</title>
+    <title>aayush. — The Musafir</title>
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Film Grain -->
-    <div class="grain"></div>
+    <!-- ==================== HERO ==================== -->
+    <main>
 
-    <!-- =========================
-         SECTION 01 — LANDING
-    ========================== -->
-    <main id="home" class="landing section">
+        <section class="hero" id="home">
+            <div class="hero-content reveal">
 
-        <div class="landing-content">
+                <span class="pill">The Musafir</span>
 
-            <div class="profile-placeholder">
-                <span>01</span>
-            </div>
+                <h1>
+                    aayush<span class="period">.</span>
+                </h1>
 
-            <h1>aayush.</h1>
-
-            <p class="mono subtitle">
-                espresso &amp; tailoring
-            </p>
-
-            <button
-                class="archive-btn"
-                id="enterArchive"
-                type="button"
-            >
-                <span>enter archive</span>
-                <span class="arrow">↓</span>
-            </button>
-
-        </div>
-
-    </main>
-
-
-    <!-- =========================
-         SECTION 02 — ABOUT
-    ========================== -->
-    <section id="about" class="about section">
-
-        <div class="about-image image-placeholder">
-
-            <img
-                src="coffee.jpg"
-                alt="Coffee"
-                loading="lazy"
-            >
-
-            <div class="image-label">
-                IMG_00
-            </div>
-
-        </div>
-
-        <div class="about-content">
-
-            <div class="about-header">
-                <span class="section-number">00:00</span>
-            </div>
-
-            <div class="about-text">
-
-                <p>
-                    Born at the midnight hour. VIII.X.
-                    Navigating the quiet spaces between
-                    late-night dark roasts, structured garments,
-                    and cinematic shadows. This is a digital
-                    canvas for the unbothered.
+                <p class="hero-subtitle">
+                    navigating the quiet spaces of the world.
                 </p>
 
-            </div>
-
-            <div class="about-footer">
-                <em>fursat.</em>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         SECTION 03 — ARCHIVE
-    ========================== -->
-    <section id="archive" class="archive section">
-
-        <div class="archive-heading">
-
-            <span class="section-number">ARCHIVE</span>
-
-            <span class="archive-count">
-                04 / 04
-            </span>
-
-        </div>
-
-
-        <div class="archive-grid">
-
-            <figure class="archive-item">
-
-                <img
-                    src="faceless_mirror.jpg"
-                    alt="Faceless mirror"
-                    loading="lazy"
-                >
-
-                <figcaption>
-                    <span>01</span>
-                    faceless mirror
-                </figcaption>
-
-            </figure>
-
-
-            <figure class="archive-item">
-
-                <img
-                    src="overcoat_drape.jpg"
-                    alt="Overcoat drape"
-                    loading="lazy"
-                >
-
-                <figcaption>
-                    <span>02</span>
-                    overcoat drape
-                </figcaption>
-
-            </figure>
-
-
-            <figure class="archive-item">
-
-                <img
-                    src="street_shadow.jpg"
-                    alt="Street shadow"
-                    loading="lazy"
-                >
-
-                <figcaption>
-                    <span>03</span>
-                    street shadow
-                </figcaption>
-
-            </figure>
-
-
-            <figure class="archive-item">
-
-                <img
-                    src="midnight_cafe.jpg"
-                    alt="Midnight cafe"
-                    loading="lazy"
-                >
-
-                <figcaption>
-                    <span>04</span>
-                    midnight cafe
-                </figcaption>
-
-            </figure>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         SECTION 04 — DEDICATION
-    ========================== -->
-    <section id="dedication" class="dedication section">
-
-        <div class="dedication-content">
-
-            <p class="dedication-title">
-                X.III ∞ VIII.X
-            </p>
-
-            <div class="audio-wrapper">
-
-                <audio
-                    id="audioPlayer"
-                    controls
-                    preload="metadata"
-                >
-                    <source src="audio.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
+                <a href="#genesis" class="enter-button">
+                    Enter Archive
+                    <span>↓</span>
+                </a>
 
             </div>
 
-            <p class="dedication-subtext">
-                waiting on sukoon.
-            </p>
+            <div class="scroll-indicator">
+                <span></span>
+            </div>
+        </section>
 
-        </div>
 
-    </section>
+        <!-- ==================== ABOUT ==================== -->
+        <section class="section genesis" id="genesis">
 
+            <div class="section-label reveal">
+                <span class="pill">The Genesis</span>
+            </div>
+
+            <div class="about-grid">
+
+                <div class="about-heading reveal">
+                    <h2>VIII.X — 00:00</h2>
+                </div>
+
+                <div class="about-content reveal">
+                    <p>
+                        Born on October 8th at the midnight hour.
+                        I am a wanderer and observer finding
+                        <em>'sukoon'</em> in cold altitudes, late-night
+                        transit, and quiet moments away from the noise.
+                        This is my digital travel archive.
+                    </p>
+
+                    <span class="signature">fursat.</span>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== FAVORITES ==================== -->
+        <section class="section essentials" id="essentials">
+
+            <div class="section-header reveal">
+                <span class="pill">The Essentials</span>
+            </div>
+
+            <div class="cards-grid">
+
+                <article class="minimal-card reveal">
+                    <span class="card-number">01</span>
+
+                    <h3>Cold Altitudes</h3>
+
+                    <p>
+                        Mountain fog, winter jackets, and the absolute
+                        silence of high elevations.
+                    </p>
+                </article>
+
+
+                <article class="minimal-card reveal">
+                    <span class="card-number">02</span>
+
+                    <h3>The Transit</h3>
+
+                    <p>
+                        Railway stations, heavy luggage, and the peace
+                        of moving toward the next destination.
+                    </p>
+                </article>
+
+
+                <article class="minimal-card reveal">
+                    <span class="card-number">03</span>
+
+                    <h3>Cinematic Audio</h3>
+
+                    <p>
+                        Slowed + reverb Hindi tracks playing through
+                        headphones on long journeys.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== DEDICATION ==================== -->
+        <section class="section dedication" id="echoes">
+
+            <div class="dedication-content reveal">
+
+                <span class="pill">Echoes</span>
+
+                <blockquote>
+                    waiting on sukoon.
+                </blockquote>
+
+                <span class="coordinates">
+                    X.III ∞ VIII.X
+                </span>
+
+                <div class="audio-wrapper">
+                    <audio controls preload="metadata">
+                        <source src="audio.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== GALLERY ==================== -->
+        <section class="section archive" id="archive">
+
+            <div class="section-header reveal">
+                <span class="pill">Captured Moments</span>
+            </div>
+
+            <div class="gallery-grid">
+
+                <figure class="gallery-item reveal">
+                    <img
+                        src="1000127858.jpg"
+                        alt="Captured moment from the archive"
+                        loading="lazy"
+                    >
+                </figure>
+
+                <figure class="gallery-item reveal">
+                    <img
+                        src="1000131996.jpg"
+                        alt="Captured moment from the archive"
+                        loading="lazy"
+                    >
+                </figure>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== FOOTER ==================== -->
+        <footer class="footer">
+
+            <p>engineered with silence.</p>
+
+            <span>© aayush. 00:00</span>
+
+        </footer>
+
+    </main>
 
     <script src="script.js"></script>
 
