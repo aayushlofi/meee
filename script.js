@@ -14,6 +14,7 @@ const revealObserver = new IntersectionObserver(
                 entry.target.classList.add("visible");
 
                 observer.unobserve(entry.target);
+
             }
 
         });
@@ -32,12 +33,12 @@ revealElements.forEach((element) => {
 
 
 /* =========================================
-   SMOOTH ANCHOR SCROLL
+   SMOOTH ANCHOR SCROLLING
 ========================================= */
 
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
 
-    anchor.addEventListener("click", function (event) {
+    link.addEventListener("click", function (event) {
 
         const targetId = this.getAttribute("href");
 
@@ -58,46 +59,53 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
 
 /* =========================================
-   SUBTLE PARALLAX FOR HERO
+   ACTIVE NAVIGATION
 ========================================= */
 
-const heroContent = document.querySelector(".hero-content");
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".navbar nav a");
 
-window.addEventListener(
-    "scroll",
-    () => {
+const sectionObserver = new IntersectionObserver(
+    (entries) => {
 
-        if (!heroContent) return;
+        entries.forEach((entry) => {
 
-        const scrollY = window.scrollY;
+            if (entry.isIntersecting) {
 
-        if (scrollY < window.innerHeight) {
+                navLinks.forEach((link) => {
+                    link.style.opacity = "0.45";
+                });
 
-            heroContent.style.transform =
-                `translateY(${scrollY * 0.12}px)`;
+                const activeLink = document.querySelector(
+                    `.navbar nav a[href="#${entry.target.id}"]`
+                );
 
-            heroContent.style.opacity =
-                Math.max(0, 1 - scrollY / (window.innerHeight * 0.8));
+                if (activeLink) {
+                    activeLink.style.opacity = "1";
+                }
 
-        }
+            }
+
+        });
 
     },
     {
-        passive: true
+        threshold: 0.35
     }
 );
 
 
+sections.forEach((section) => {
+    sectionObserver.observe(section);
+});
+
+
 /* =========================================
-   DYNAMIC CURRENT YEAR
+   PAGE LOAD
 ========================================= */
 
-const footerCopyright = document.querySelector(".footer span");
+window.addEventListener("load", () => {
 
-if (footerCopyright) {
+    document.body.classList.add("loaded");
 
-    // Keeps the requested visual format while
-    // allowing easy future year updates.
-    footerCopyright.textContent = "© aayush. 00:00";
-
-}
+});
