@@ -1,118 +1,103 @@
 /* =========================================
-   ENTER ARCHIVE
+   SCROLL REVEAL
 ========================================= */
 
-const enterArchive = document.getElementById("enterArchive");
-const aboutSection = document.getElementById("about");
-
-enterArchive.addEventListener("click", () => {
-
-    aboutSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-
-});
-
-
-/* =========================================
-   ARCHIVE HOVER FOCUS
-========================================= */
-
-const archiveItems = document.querySelectorAll(".archive-item");
-
-archiveItems.forEach((item) => {
-
-    item.addEventListener("mouseenter", () => {
-
-        document.body.classList.add("archive-focus");
-
-    });
-
-    item.addEventListener("mouseleave", () => {
-
-        document.body.classList.remove("archive-focus");
-
-    });
-
-});
-
-
-/* =========================================
-   IMAGE FALLBACK
-========================================= */
-
-const images = document.querySelectorAll("img");
-
-images.forEach((image) => {
-
-    image.addEventListener("error", () => {
-
-        image.style.display = "none";
-
-        image.parentElement.classList.add("image-missing");
-
-    });
-
-});
-
-
-/* =========================================
-   AUDIO
-========================================= */
-
-const audioPlayer = document.getElementById("audioPlayer");
-
-audioPlayer.addEventListener("play", () => {
-
-    document.body.classList.add("audio-playing");
-
-});
-
-audioPlayer.addEventListener("pause", () => {
-
-    document.body.classList.remove("audio-playing");
-
-});
-
-audioPlayer.addEventListener("ended", () => {
-
-    document.body.classList.remove("audio-playing");
-
-});
-
-
-/* =========================================
-   SMALL SCROLL REVEAL
-========================================= */
-
-const revealElements = document.querySelectorAll(
-    ".about-content, .archive-item, .dedication-content"
-);
+const revealElements = document.querySelectorAll(".reveal");
 
 const revealObserver = new IntersectionObserver(
-    (entries) => {
+    (entries, observer) => {
 
         entries.forEach((entry) => {
 
             if (entry.isIntersecting) {
 
-                entry.target.classList.add("revealed");
+                entry.target.classList.add("visible");
 
+                observer.unobserve(entry.target);
             }
 
         });
 
     },
     {
-        threshold: 0.12
+        threshold: 0.12,
+        rootMargin: "0px 0px -50px 0px"
     }
 );
 
+
 revealElements.forEach((element) => {
-
-    element.classList.add("reveal");
-
     revealObserver.observe(element);
+});
+
+
+/* =========================================
+   SMOOTH ANCHOR SCROLL
+========================================= */
+
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+
+    anchor.addEventListener("click", function (event) {
+
+        const targetId = this.getAttribute("href");
+
+        const target = document.querySelector(targetId);
+
+        if (!target) return;
+
+        event.preventDefault();
+
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    });
 
 });
+
+
+/* =========================================
+   SUBTLE PARALLAX FOR HERO
+========================================= */
+
+const heroContent = document.querySelector(".hero-content");
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if (!heroContent) return;
+
+        const scrollY = window.scrollY;
+
+        if (scrollY < window.innerHeight) {
+
+            heroContent.style.transform =
+                `translateY(${scrollY * 0.12}px)`;
+
+            heroContent.style.opacity =
+                Math.max(0, 1 - scrollY / (window.innerHeight * 0.8));
+
+        }
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+/* =========================================
+   DYNAMIC CURRENT YEAR
+========================================= */
+
+const footerCopyright = document.querySelector(".footer span");
+
+if (footerCopyright) {
+
+    // Keeps the requested visual format while
+    // allowing easy future year updates.
+    footerCopyright.textContent = "© aayush. 00:00";
+
+}
